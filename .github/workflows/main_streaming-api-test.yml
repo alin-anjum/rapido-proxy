@@ -7,7 +7,7 @@ name: Build and deploy Rapido Proxy to Azure Web App
 on:
   push:
     branches:
-    - multi-slide-rapido
+    - main
   workflow_dispatch:
 
 jobs:
