@@ -6,16 +6,9 @@ Lightweight FastAPI proxy that forwards all requests to the AWS rapido API.
 Deploy this on Azure with a CNAME for stable domain access.
 """
 
-import sys
-import os
-
-# Add packages directory to Python path for Azure deployment
-packages_dir = os.path.join(os.path.dirname(__file__), 'packages')
-if os.path.exists(packages_dir):
-    sys.path.insert(0, packages_dir)
-
 import asyncio
 import httpx
+import os
 from fastapi import FastAPI, Request, Response, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
