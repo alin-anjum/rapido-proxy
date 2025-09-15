@@ -75,14 +75,14 @@ jobs:
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'rapido-api-proxy'  # Change this to your Azure App Service name
+          app-name: 'streaming-api-test'  # Change this to your Azure App Service name
           slot-name: 'Production'
           startup-command: 'python azure_proxy_wrapper.py'
           
       - name: Set Environment Variables
         uses: azure/appservice-settings@v1
         with:
-          app-name: 'rapido-api-proxy'  # Change this to your Azure App Service name
+          app-name: 'streaming-api-test'  # Change this to your Azure App Service name
           app-settings-json: |
             [
               {
