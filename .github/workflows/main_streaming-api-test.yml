@@ -64,7 +64,7 @@ jobs:
         with:
           name: rapido-proxy-app
       
-      # No login step needed with publish profile
+      # Deploy using publish profile authentication only
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
