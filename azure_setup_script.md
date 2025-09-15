@@ -84,7 +84,7 @@ az ad sp create-for-rbac \
 
 ## Step 3: Update Workflow File
 
-In `.github/workflows/deploy-azure-proxy.yml`, update:
+In `.github/workflows/main_streaming-api-test.yml`, update:
 - `app-name: 'rapido-api-proxy'` → Your actual app name
 - Branches to deploy from
 

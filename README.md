@@ -39,7 +39,7 @@ az deployment group create \
 |------|---------|
 | `azure_proxy_wrapper.py` | Main proxy application |
 | `requirements.txt` | Python dependencies |
-| `.github/workflows/deploy-azure-proxy.yml` | GitHub Actions workflow (optional) |
+| `.github/workflows/main_streaming-api-test.yml` | GitHub Actions workflow (optional) |
 | `azuredeploy.json` | Azure ARM template |
 | `azure_setup_script.md` | Detailed setup instructions |
 
