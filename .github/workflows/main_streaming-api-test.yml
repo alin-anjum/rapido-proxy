@@ -36,7 +36,11 @@ jobs:
         
       - name: Prepare deployment files
         run: |
-          # Files are already in root directory for separate repo
+          # Create a zip package with all files including virtual environment
+          source venv/bin/activate
+          # Install dependencies in a way that Azure can detect
+          pip install --target ./packages -r requirements.txt
+          # Create startup script
           echo "python azure_proxy_wrapper.py" > startup.txt
           
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
@@ -49,6 +53,7 @@ jobs:
             .
             !venv/
             !.git/
+            !__pycache__/
 
   deploy:
     runs-on: ubuntu-latest
