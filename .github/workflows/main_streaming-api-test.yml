@@ -71,8 +71,6 @@ jobs:
         id: deploy-to-webapp
         with:
           app-name: 'streaming-api-test'
-          slot-name: 'Production'
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
-          startup-command: 'python azure_proxy_wrapper.py'
           
       # Environment variables are set in Azure Portal Configuration
