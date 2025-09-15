@@ -64,25 +64,22 @@ jobs:
         with:
           name: rapido-proxy-app
       
-      - name: Login to Azure
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      # No login step needed with publish profile
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'streaming-api-test'  # Change this to your Azure App Service name
+          app-name: 'streaming-api-test'
           slot-name: 'Production'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           startup-command: 'python azure_proxy_wrapper.py'
           
       - name: Set Environment Variables
         uses: azure/appservice-settings@v1
         with:
-          app-name: 'streaming-api-test'  # Change this to your Azure App Service name
+          app-name: 'streaming-api-test'
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
           app-settings-json: |
             [
               {
